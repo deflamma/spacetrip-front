@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css">
+    <title>로그인</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Pen+Script&family=Raleway:wght@300&family=Sunflower:wght@300&family=Yeon+Sung&display=swap');
+    </style>
+</head>
+<body>
+    <h1>별 헤는 우주여행</h1>
+    <img src="image/우주2.png" width="400px" height="400px">
+    <div class="login-form">
+        <form method="post" id="form_login" name="form_login" >
+            <input type="text" name="id" id="id" class="text-field" placeholder="아이디">
+            <input type="password" name="password" id="pw" class="text-field" placeholder="비밀번호">
+            <input type="submit" value="로그인" id="submit1-btn" class="submit1-btn" onclick="login()">
+ 
+        </form>
+
+        <div class="links">
+            <a href="#">아이디 찾기</a>
+            <a href="#">비밀번호 찾기</a>
+            <a href="./signUp.html">회원가입</a>
+        </div>
+
+    </div>
+
+    <script>  
+        function login(){
+            var form = document.form_login;        //document - 윈도우 화면 form_login-폼 이름
+
+            if(form.id.value == '') {              //if문 안에 있는거 form 빼고 써도 가능하다 (id.value, id.focus() 만 써도 가능)
+                alert('아이디를 입력해 주세요');   //return false (현재 submit 이벤트를 중지하는 개념 즉, 전송을 막는다->페이지 안넘김)
+                form.id.focus();                   //여기선 return만 써도 실행 됨
+                return false;
+            }
+            else if(form.pw.value == '') {         //if문 안에 있는거 form 빼고 써도 가능하다 (pw.value, pw.focus() 만 써도 가능)
+                alert('비밀번호를 입력해 주세요'); //else 빼고 if만 써도 가능, but 구분하기 쉽게 다르게 써봄
+                form.id.focus();
+                return false;
+            } 
+            form.action = "./main.html";
+            form.submit();                         //form.submit(); 삭제해도 실행됨 왜 넣는거지?
+           
+          }
+      </script>
+
+</body>
+</html>

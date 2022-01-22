@@ -1,0 +1,72 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+ul, li {
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    width: auto;
+    height: 95px;
+    background-color: #060314;
+    position: relative;
+    color: white;
+}
+
+#top_menu {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+}
+
+#top_menu a {
+    color: white;
+    font-family: 'Sunflower', sans-serif;
+}
+
+nav {
+    position: absolute;
+    bottom: 10px;
+    left: 200px;
+    font-size: 19px;
+    font-family: 'Sunflower', sans-serif;
+}
+
+nav li {
+    display: inline;
+    margin-left: 30px;
+}
+
+nav li a {
+    color: white;
+}
+
+#logo {
+    position: absolute;
+    width: 90px;
+    height: 80px;
+    top: 3px;
+    left: 30px;
+}
+
+#content {
+    margin-top: 10px;
+}
+
+footer {
+    width: auto;
+    height: 100px;
+    margin-top: 5px;
+    text-align: center;
+    background-color: #060314;
+    color: white;
+    font-size: 14px;
+}

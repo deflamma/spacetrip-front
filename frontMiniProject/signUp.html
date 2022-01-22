@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./signUp.css">
+    <title>회원가입</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Pen+Script&family=Raleway:wght@300&family=Sunflower:wght@300&family=Yeon+Sung&display=swap');
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <div>
+        <form name="join_check" action="./login.html" method="post">
+            <div>
+                <label>아이디 <input type="text" name="id" id="id"> </label>
+                <button type="button" onclick="id_check()">중복확인</button>
+            </div>
+
+            <div>
+                <label>비밀번호 <input type="password" name="password" id="password" ></label>
+            </div>
+
+            <div>
+                <label>비밀번호확인 <input type="password" name="re_password" id="re_password" ></label>
+            </div>
+
+            <div>
+                <label>이름 <input type="text" name="username" id="username"> </label>
+            </div>
+
+            <div>
+                <label>
+                    생년월일 <input type="text" id="yy" name="yy" placeholder="년도(4자리)" maxlength="4">
+                    <select name="mm" id="mm">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    월
+                </label>
+                <input type="text" name="dd" id='dd' placeholder="일" maxlength="2">
+            </div>
+
+            <div>
+                <label>성별<input type="radio" value="M" name="gender" id="male"> 남자
+                           <input type="radio" value="F" name="gender" id="female"> 여자
+                </label>
+            </div>
+
+            <div>
+                <label>전화번호 <input type="text" name="mobile" id="mobile" placeholder="-없이 숫자만"> </label>
+            </div>
+
+            <div>
+                <label>이메일 <input type="text" name="email_1" id="email_1"> @ 
+                             <input type="text" name="email_2" id="email_2">
+                             <select name="eamil_3" id="email_3" onchange="change_email()">
+                                <option value="">직접입력</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                            </select>
+                </label>
+            </div>
+
+            <div>
+                <label>주소 <input type="text" name="total_add" id="total_add">     
+                </label>
+                <button type="button" onclick="search_address()">주소검색</button>
+            </div>
+
+            <div>
+                <label>기본주소  <input type="text" name="base_add" id="base_add">  </label>
+            </div>
+
+            <div>
+                <label>상세주소 <input type="text" name="detail_add" id="detail_add">  </label>
+            </div>
+
+            <div>
+                <label id="agree_name">약관동의
+                <input type="checkbox" value="Y" name="agree" id="agree"> 별 헤는 우주여행의 개인정보 수집 및 이용에 모두 동의합니다. </label>    
+            </div>
+
+            <div class="btn_div">
+                <button type="button" onclick=" member_chk() "> 가입하기 </button>  <!-- onclick="location.href='./login.html' -->
+                <button type="button" onclick=" history_back() "> 이전으로 </button>
+            </div>
+        </form>
+   </div>
+
+   <script>
+     
+   function id_check(){
+       //아이디 중복확인
+      //서버에 id.value값을 넣어서 요청을 하면 서버에서 데이터베이스로 보내서 검색한후 응답한 값과 비교)
+      if( id.value=='admin') {
+          alert('이미 가입된 회원입니다');
+          id.focus();
+          false;
+      }else {
+          alert('사용 가능한 아이디입니다')
+          password.focus();
+          true;
+      }
+   }
+   function change_email(){
+       //이메일 뒷부분 자동입력
+     var sIndex = email_3.options.selectedIndex;
+     var sVal = email_3.options[sIndex].value;
+     email_2.value = sVal;
+
+   }
+   function search_address(){
+       //주소검색하기 
+   }
+   function history_back(){
+       //이전으로 되돌아가기
+       history.back();
+   }
+   function member_chk(){
+        
+      //1단계 해당 태그를 선택하기
+       var id=document.getElementById("id");//필수
+       var pwd = document.getElementById("password");//필수
+       var re_password = document.getElementById("re_password");//필수
+       var username = document.getElementById("username");//필수
+       var male = document.getElementById("male");
+       var female = document.getElementById("female");
+       var mobile = document.getElementById("mobile");//필수
+       var email_1 = document.getElementById("email_1");
+       var email_2 = document.getElementById("email_2");
+       var email_3 = document.getElementById("email_3");
+       var total_add = document.getElementById("total_add");
+       var base_add = document.getElementById("base_add");
+       var detail_add = document.getElementById("detail_add");
+       var agree = document.getElementById("agree");//필수
+       //가입하기 유효성 검사를 하고 모두 통과되면 submit로 만들어 보내기 
+       
+      //2단계 필수인 것을 공백인지 체크하기  
+       if( id.value == '') {
+           alert('아이디를 입력해 주세요');
+           id.focus();
+           return false;
+       }
+       if( pwd.value == '') {
+           alert('비밀번호를 입력해 주세요');
+           pwd.focus();
+           return false;
+       }
+       if( re_password.value == '') {
+           alert('비밀번호 확인을 입력해 주세요');
+           re_password.focus();
+           return false;
+       }
+       
+       //비밀번호 체크
+       //1) 비밀번호 유효성 검사 정규표현문 영문자+숫자+특수문자(8자~15자) 
+       //2) 비밀번호 비밀번호확인이랑 같은지 검사
+       var pwReq =  /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+       if( !pwReq.test(pwd.value) ) {
+           alert("비밀번호는 영문자+숫자+특수문자(8자~15자)의 조합입니다. ");
+           pwd.focus();
+           false;
+       }
+
+       if( !pwReq.test(re_password.value) ) {
+           alert("비밀번호확인은 영문자+숫자+특수문자(8자~15자)의 조합입니다. ");
+           pwd.focus();
+           false;
+       }
+       if( pwd.value != re_password.value) {
+           alert("비밀번호확인이 비밀번호와 틀립니다 ");
+           re_password.focus();
+           false;
+       }
+       
+
+       if( username.value == '') {
+           alert('이름을 입력해 주세요');
+           username.focus();
+           return false;
+       }
+
+       if( mobile.value == '') {
+           alert('전화번호를 입력해 주세요');
+           mobile.focus();
+           return false;
+       }
+
+       //전화번호는 숫자만 유효성검사 정규표현식 
+       var mobile = document.getElementById("mobile");
+       var telReg = /^[0-9]+/
+       if( !telReg.test(mobile.value) ){
+           alert('전화번호에 숫자만 입력해 주세요');
+           mobile.focus();
+           return false;
+       }
+
+       if( !agree.checked ){
+           alert('약관동의를 체크해 주세요');
+           return false;
+       }
+
+       //유효성 검사 모두 통과했으면 submit()로 서버에 자료 전송
+       document.join_check.submit();
+       
+       
+   }
+</script>
+
+</body>
+</html>

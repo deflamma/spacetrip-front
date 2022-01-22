@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sunflower', sans-serif;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+header {
+    width: auto;
+    height: 95px;
+    background-color: #060314;
+    position: relative;
+    color: white;
+}
+
+#top_menu {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+}
+
+#top_menu a {
+    color: white;
+    font-family: 'Sunflower', sans-serif;
+}
+
+nav {
+    position: absolute;
+    bottom: 10px;
+    left: 200px;
+    font-size: 19px;
+    font-family: 'Sunflower', sans-serif;
+}
+
+nav li {
+    display: inline;
+    margin-left: 30px;
+}
+
+nav li a {
+    color: white;
+}
+
+#logo {
+    position: absolute;
+    width: 90px;
+    height: 80px;
+    top: 3px;
+    left: 30px;
+}
+
+body {
+    background-color:rgb(235, 235, 235);
+}
+
+.list_wrap ul {
+    font-size: 0;;
+}
+
+.list_wrap .item {
+    display: inline-block;
+    width: 450px;
+    margin-top: 140px;
+    margin-left: 1.2%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.list_wrap .item .image {
+    width: 100;
+    height: 500px;
+    background-color: #ddd;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+}
+
+.list_wrap .item1 .image { background-image: url(./image/무중력체험.png); }
+.list_wrap .item2 .image { background-image: url(./image/달.png); }
+.list_wrap .item3 .image { background-image: url(./image/화성.png); }
+.list_wrap .item4 .image { background-image: url(./image/국제우주정거장.png); }
+
+
+.list_wrap .item .cont {
+    padding: 20px;
+}
+
+.list_wrap .item strong {
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    letter-spacing: -1px;
+}
+
+.list_wrap .item p {
+    font-size: 13px;
+    letter-spacing:  -1px;
+}
+
+.list_wrap .item a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: rgb(206, 203, 203);
+    color: #6002b8;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.list_wrap .item a:hover {
+    color: white;
+    background-color: #6002b8;
+}
